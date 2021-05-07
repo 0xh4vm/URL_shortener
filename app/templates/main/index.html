@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block body_classes %}
+header-sticky header-over
+{% endblock %}
+
+{% block header %}
+{% include 'main/header.html' %}
+{% endblock header %}
+
+{% block content %}
+
+
+<div class="mt-4">
+	<div class="container">
+		
+		<form id="form_sign_in" novalidate method="POST">	
+			<div class="row">
+				<div class="form-label-group  w-50 mx-auto d-block ">
+					<input type="text" name="url" class="form-control form-control-clean mb-3" placeholder="URL для сокращения">
+					<label for="url">URL для сокращения</label>
+				</div>
+				<button type="submit" class="btn btn-primary mx-auto" >
+					<i class="fi fi-check"></i>
+					Отправить
+				</button>
+			</div>
+		</form>
+
+		<div id="result" class="row hide">
+			<!-- Aero List -->
+			<ul class="list-group list-group-flush w-80 mx-auto rounded overflow-hidden">
+	
+				<li class="list-group-item pt-4 pb-4">
+					<div class="d-flex">
+
+						<div class="badge badge-success badge-soft badge-ico-sm rounded-circle float-start">
+							<i class="fi fi-check"></i>
+						</div>
+
+						<div class="pl--12 pr--12">
+							<a href="" id="result-url" class="text-dark font-weight-medium m-0">							</a>
+
+							<p class="m-0">
+								Перейдите по ссылке и вы будете перенаправлены на исходный ресурс.
+							</p>
+						</div>
+
+					</div>
+				</li>
+
+			</ul>
+			<!-- /Aero List -->
+														
+		</div>
+
+	</div>
+</div>
+{% endblock content %}
+
+{% block additional_scripts %}
+    <script src="{{url_for('static', filename='js/main/index.js')}}"></script>
+{% endblock additional_scripts %}
